@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} h-screen`}>
+        <div className="group flex gap-10 items-center justify-between text-white font-extrabold py-4 px-10 bg-gradient-to-l from-blue-900 to-black">
+          <div className="flex gap-4 sm:gap-10 items-center flex-wrap">
+            <h2>
+              <Link href="/" className="cursor-pointer">
+                REBECCA FRANSSON
+              </Link>
+            </h2>
+          </div>
+        </div>
+
+        {children}
+      </body>
     </html>
   );
 }
