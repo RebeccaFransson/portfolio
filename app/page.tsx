@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ScrollPastMeButton } from "./_components/scrollPastMeButton";
 
 export default function Home() {
   return (
@@ -32,7 +33,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="h-[65px]">Wanna know more?</div>
+
+          <ScrollPastMeButton id={"knowMore"} />
         </div>
         <div className="h-full  flex flex-col justify-center items-center">
           button right
