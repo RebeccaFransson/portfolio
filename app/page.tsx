@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { ScrollPastMeButton } from "./_components/scrollPastMeButton";
+import { DoubleChevron } from "./_components/icon/double-chevron";
 
 export default function Home() {
   return (
     <main className="flex w-full h-full flex-col items-center justify-between">
-      <div className="text-white w-full h-full bg-gradient-to-l from-blue-900 to-black p-4 flex gap-4 justify-between items-center">
+      <div className="text-white w-full h-full bg-gradient-to-l from-blue-900 to-black py-4 flex gap-4 justify-between items-center">
         <div className="h-full  flex flex-col justify-center items-center">
           button left
         </div>
@@ -36,8 +37,10 @@ export default function Home() {
 
           <ScrollPastMeButton id={"knowMore"} />
         </div>
-        <div className="h-full  flex flex-col justify-center items-center">
-          button right
+        <div className="h-full flex flex-col justify-center items-center">
+          <button className="bg-white p-4 rounded-l">
+            <DoubleChevron direction="down" />
+          </button>
         </div>
       </div>
       hej
