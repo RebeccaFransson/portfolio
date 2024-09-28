@@ -19,10 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} h-screen`}>
-        <div className="sticky top-0 z-10 group  text-white font-extrabold  bg-gradient-to-l from-blue-900 to-black">
+        <div className="sticky top-0 z-10 group text-white font-extrabold bg-white/70 dark:bg-black/70 backdrop-blur-sm">
           <div className="flex gap-4 sm:gap-10 items-center flex-wrap py-4 px-10">
             <h2>
-              <Link href="/" className="cursor-pointer">
+              <Link href="/" className="cursor-pointer text-pink-400">
                 REBECCA FRANSSON
               </Link>
             </h2>

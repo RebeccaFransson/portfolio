@@ -1,7 +1,9 @@
 export const DoubleChevron = ({
   direction,
+  color = "fill-white",
 }: {
   direction: "down" | "left" | "right";
+  color?: `fill-${string}`;
 }) => {
   const className = () => {
     switch (direction) {
@@ -10,12 +12,12 @@ export const DoubleChevron = ({
       case "left":
         return "rotate-180";
       case "right":
-        return "rotate-90";
+        return "";
     }
   };
   return (
     <svg
-      className={`${className()} fill-white `}
+      className={`${className()} ${color}`}
       xmlns="http://www.w3.org/2000/svg"
       width="21"
       height="21"

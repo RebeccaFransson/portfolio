@@ -9,7 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        blue: { 950: "#162A66" },
+        yellow: { 300: "#fee440" },
+        blue: { 400: "#00bbf9" },
+        green: { 400: "#7ae582" },
+      },
+      scale: {
+        "102": "1.02",
       },
       animation: {
         float: "upAndDown 4s ease-in infinite",
@@ -22,6 +27,9 @@ const config: Config = {
           "75%": { transform: "translateY(4px)" },
           "100%": { transform: "translateY(0px)" },
         },
+      },
+      transitionProperty: {
+        translate: "translateY, translateX",
       },
     },
   },
