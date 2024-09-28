@@ -14,7 +14,7 @@ export const HeaderBorder = () => {
 
   return (
     <div
-      className={`w-full border-b transition-opacity ease-in-out duration-500 border-pink-200 bg-white ${
+      className={`w-full border-b transition-opacity ease-in-out duration-500 border-pink-200 dark:border-pink-400 bg-white ${
         scrolled ? "opacity-100" : "opacity-0"
       }`}
     ></div>
