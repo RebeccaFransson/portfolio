@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={`${inter.className} h-screen`}>
         <Providers>
           <div className="sticky top-0 z-10 group text-white font-extrabold bg-white/70 dark:bg-black/70 backdrop-blur-sm">
-            <div className="flex gap-4 sm:gap-10 items-center flex-wrap py-4 px-10">
+            <div className="flex gap-4 justify-between sm:gap-10 items-center flex-wrap py-4 px-10">
               <h2>
                 <Link href="/" className="cursor-pointer text-pink-400">
                   REBECCA FRANSSON

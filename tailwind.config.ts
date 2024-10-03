@@ -18,7 +18,7 @@ const config: Config = {
         "102": "1.02",
       },
       animation: {
-        float: "upAndDown 4s ease-in infinite",
+        "float-1": "upAndDown 4s ease-in infinite",
       },
       keyframes: {
         upAndDown: {

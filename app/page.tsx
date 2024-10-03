@@ -6,14 +6,14 @@ import { Wave } from "./_components/svgs/wave";
 export default function Home() {
   return (
     <main className="flex w-full h-full flex-col items-center justify-between">
-      <div className="flex flex-col gap-4 justify-center items-center text-white w-full min-h-[80vh] p-10 ">
+      <div className="flex flex-col gap-4 justify-center items-center w-full min-h-[80vh] p-10 ">
         <div className="flex gap-12 items-center justify-center py-32">
-          <div className=" bg-white rounded p-4 max-w-[650px]">
-            <div className="flex flex-col gap-2 rounded  text-green-500">
+          <div className=" p-4 max-w-[650px]">
+            <div className="flex flex-col gap-2 rounded  text-black dark:text-white">
               <div className="flex gap-4 items-center">
                 <h1 className=" font-extrabold text-7xl ">
                   Hello world, <br />
-                  I'm Rebecca!
+                  I'm <span className="text-pink-400">Rebecca</span>!
                 </h1>
               </div>
 
@@ -28,7 +28,7 @@ export default function Home() {
               Fire calculator
             </FloatingBox>
             <FloatingBox className="bg-blue-400 ">Crypto project</FloatingBox>
-            <FloatingBox className="bg-pink-400 translate-x-4 ">
+            <FloatingBox className="bg-green-400 translate-x-4 ">
               Resume
             </FloatingBox>
           </div>
