@@ -5,7 +5,7 @@ import { Wave } from "./_components/svgs/wave";
 
 export default function Home() {
   return (
-    <main className="flex w-full h-full flex-col items-center justify-between">
+    <main className="">
       <div className="flex flex-col gap-4 justify-center items-center w-full min-h-[80vh] p-10 ">
         <div className="flex gap-12 items-center justify-center py-32">
           <div className=" p-4 max-w-[650px]">
