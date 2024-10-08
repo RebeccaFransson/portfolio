@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Kanban list
+
+- [ ] Boxes move with mouse on landing page
+- [ ] Scrolling past first section displays the links to the projects in the header
+- [ ] Animate: typewriter for part of resume
 
 ## Getting Started
 

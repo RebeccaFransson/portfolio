@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ScrollPastMeButton } from "./_components/scrollPastMeButton";
 import { FloatingBox } from "./_components/floatingBox";
 import { Wave } from "./_components/svgs/wave";
+import { Sun } from "./_components/icon/sun";
 
 export default function Home() {
   return (
@@ -24,22 +25,42 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col gap-4 w-full">
-            <FloatingBox className="bg-orange-300 translate-x-2 ">
-              Fire calculator
+            <FloatingBox className="bg-orange-300 translate-x-2 flex gap-4 items-center">
+              <div className="bg-pink-400 rounded-full w-10 h-10"></div>
+              <div className="flex flex-col text-white dark:text-black">
+                <span className=" font-bold text-xl">Fire calculator</span>
+                <span className=" text-xs">
+                  Put in your monthly expenses to figure out how <br />
+                  much money you need to retire early.
+                </span>
+              </div>
             </FloatingBox>
-            <FloatingBox className="bg-blue-400 ">Crypto project</FloatingBox>
-            <FloatingBox className="bg-green-400 translate-x-4 ">
-              Resume
+            <FloatingBox className="bg-blue-400 flex gap-4 items-center">
+              <div className="bg-pink-400 rounded-full w-10 h-10"></div>
+              <div className="flex flex-col text-white dark:text-black">
+                <span className=" font-bold text-xl">Crypto project</span>
+                <span className=" text-xs">Project similar to</span>
+              </div>
+            </FloatingBox>
+            <FloatingBox className="bg-green-400 translate-x-4 flex gap-4 items-center">
+              <div className="bg-pink-400 rounded-full w-10 h-10"></div>
+              <div className="flex flex-col text-white dark:text-black">
+                <span className=" font-bold text-xl">Resume</span>
+                <span className=" text-xs">
+                  Want to know what I've done the last years?
+                </span>
+              </div>
             </FloatingBox>
           </div>
         </div>
       </div>
       <div className="relative flex flex-col w-full">
         <ScrollPastMeButton
-          className=" absolute top-14 left-[26vw] text-orange-400"
+          className=" absolute top-12 left-[26vw] text-pink-400"
           id={"knowMore"}
         />
         <Wave
+          animate
           viewBox="200 500 200 70"
           colors={{ front: "fill-orange-300", back: "fill-pink-400" }}
         />

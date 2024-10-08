@@ -2,10 +2,12 @@ export const Wave = ({
   viewBox,
   colors,
   upsideDown = false,
+  animate = false,
 }: {
   viewBox: string;
   colors: { back: `fill-${string}`; front: `fill-${string}` };
   upsideDown?: boolean;
+  animate?: boolean;
 }) => {
   return (
     <svg
@@ -19,7 +21,7 @@ export const Wave = ({
       <path
         xmlns="http://www.w3.org/2000/svg"
         d="M0 539L21.5 535.2C43 531.3 86 523.7 128.8 523.2C171.7 522.7 214.3 529.3 257.2 526C300 522.7 343 509.3 385.8 510.2C428.7 511 471.3 526 514.2 528.7C557 531.3 600 521.7 642.8 513.5C685.7 505.3 728.3 498.7 771.2 497.2C814 495.7 857 499.3 878.5 501.2L900 503L900 601L878.5 601C857 601 814 601 771.2 601C728.3 601 685.7 601 642.8 601C600 601 557 601 514.2 601C471.3 601 428.7 601 385.8 601C343 601 300 601 257.2 601C214.3 601 171.7 601 128.8 601C86 601 43 601 21.5 601L0 601Z"
-        className={colors.back}
+        className={`${colors.back} ${animate ? "animate-wave" : ""}`}
       />
       <path
         className={colors.front}

@@ -9,7 +9,7 @@ export const FloatingBox = ({
 }) => {
   return (
     <div
-      className={`${className} px-10 py-6 rounded transition hover:scale-102 `}
+      className={`${className} p-6 rounded transition hover:scale-102 max-w-[460px]`}
     >
       {children}
     </div>
