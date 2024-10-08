@@ -16,7 +16,7 @@ export const ResumeJobContainer = ({
   return (
     <div className="flex gap-24 w-full justify-between min-h-[500px]">
       <div className="flex flex-col gap-2 h-full md:min-w-[490px]">
-        <h3 className="text-white font-extrabold text-6xl">
+        <h3 className="text-black dark:text-white font-extrabold text-6xl">
           {employment.company}
         </h3>
         <div className="flex gap-2">

@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-white dark:bg-black`}>
         <Providers>
-          <div className="sticky top-0 z-10 group text-white  bg-white/70 dark:bg-black/70 backdrop-blur-sm">
+          <div className="sticky top-0 z-20 group text-white  bg-white/70 dark:bg-black/70 backdrop-blur-sm">
             <div className="flex gap-4 justify-between sm:gap-10 items-center flex-wrap py-4 px-10">
               <div className="flex gap-4">
                 <Link

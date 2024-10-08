@@ -19,7 +19,7 @@ export const Badge = ({
         return "bg-orange-300 text-orange-600";
 
       default:
-        return "bg-black text-white dark:bg-white dark:text-black";
+        return "bg-gray-400 text-black dark:bg-white dark:text-gray-500";
     }
   };
   return (
@@ -36,6 +36,7 @@ export const TechnologyBadge = ({ children }: { children: string }) => {
     switch (children.toLowerCase()) {
       case "typescript":
       case "react.js":
+      case "java":
         return "blue";
       case "node.js":
       case "vue.js":

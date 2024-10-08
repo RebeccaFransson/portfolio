@@ -57,7 +57,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="relative flex flex-col w-full">
+      <div className="relative flex flex-col w-full z-10">
         <ScrollPastMeButton
           className="absolute top-[5vh] left-10 text-pink-400 bg-pink-50 rounded-full py-2 px-4 hover:bg-pink-100"
           id={"aboutMe"}
@@ -81,22 +81,28 @@ export default function Home() {
             alt="a profile picture of rebecca"
           />
         </div>
-        <Wave
-          viewBox="500 490 100 70"
-          colors={{ front: "fill-orange-300", back: "fill-pink-400" }}
-          upsideDown
-        />
       </div>
-      <div className="flex flex-col gap-12 h-[500px] w-full p-10 overflow-y-scroll">
-        {employmentHistory.map((employment) => (
-          <ResumeJobContainer employment={employment} />
-        ))}
+      <div className="relative">
+        <div className="absolute top-0 w-full">
+          <Wave
+            viewBox="500 490 100 70"
+            colors={{ front: "fill-orange-300", back: "fill-pink-400" }}
+            upsideDown
+          />
+        </div>
+        <div className="flex flex-col gap-12 p-10 h-[800px] pt-[300px] w-full overflow-y-scroll">
+          {employmentHistory.map((employment) => (
+            <ResumeJobContainer employment={employment} />
+          ))}
+        </div>
+        <div className="absolute bottom-0 w-full">
+          <Wave
+            viewBox="500 490 100 70"
+            colors={{ front: "fill-green-400", back: "fill-blue-400" }}
+          />
+        </div>
       </div>
       <div className="flex flex-col w-full">
-        <Wave
-          viewBox="500 490 100 70"
-          colors={{ front: "fill-green-400", back: "fill-blue-400" }}
-        />
         <div className="flex gap-12 bg-green-400 h-[100px] w-full p-10 ">
           hellooooo
         </div>
