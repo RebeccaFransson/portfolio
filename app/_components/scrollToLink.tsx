@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 
-export const ScrollPastMeButton = ({
+export const ScrollToLink = ({
   id,
   className,
   children,
@@ -18,8 +18,7 @@ export const ScrollPastMeButton = ({
   };
   return (
     <button
-      id={id}
-      className={`cursor-pointer ${className} -scroll-mt-20`}
+      className={`${className} cursor-pointer`}
       onClick={() => scrollTo(id)}
     >
       {children}

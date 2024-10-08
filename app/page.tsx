@@ -2,7 +2,6 @@ import Image from "next/image";
 import { ScrollPastMeButton } from "./_components/scrollPastMeButton";
 import { FloatingBox } from "./_components/floatingBox";
 import { Wave } from "./_components/svgs/wave";
-import { Sun } from "./_components/icon/sun";
 
 export default function Home() {
   return (
@@ -57,7 +56,7 @@ export default function Home() {
       <div className="relative flex flex-col w-full">
         <ScrollPastMeButton
           className="absolute top-[5vh] left-10 text-pink-400 bg-pink-50 rounded-full py-2 px-4 hover:bg-pink-100"
-          id={"knowMore"}
+          id={"aboutMe"}
         >
           About me
         </ScrollPastMeButton>

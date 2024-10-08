@@ -5,6 +5,7 @@ import Link from "next/link";
 import { HeaderBorder } from "./_components/headerBorder";
 import { Providers } from "./providers";
 import ToggleTheme from "./_components/toogleTheme";
+import { ScrollToLink } from "./_components/scrollToLink";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,13 +24,23 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className}`}>
         <Providers>
-          <div className="sticky top-0 z-10 group text-white font-extrabold bg-white/70 dark:bg-black/70 backdrop-blur-sm">
+          <div className="sticky top-0 z-10 group text-white  bg-white/70 dark:bg-black/70 backdrop-blur-sm">
             <div className="flex gap-4 justify-between sm:gap-10 items-center flex-wrap py-4 px-10">
-              <h2>
-                <Link href="/" className="cursor-pointer text-pink-400">
-                  REBECCA FRANSSON
+              <div className="flex gap-4">
+                <Link
+                  href="/"
+                  className="text-pink-400 font-extrabold hover:text-pink-500"
+                >
+                  <h2 className="pr-4">REBECCA FRANSSON</h2>
                 </Link>
-              </h2>
+
+                <ScrollToLink
+                  id="aboutMe"
+                  className="text-pink-400 hover:text-pink-500"
+                >
+                  ABOUT
+                </ScrollToLink>
+              </div>
               <ToggleTheme />
             </div>
             <HeaderBorder />
