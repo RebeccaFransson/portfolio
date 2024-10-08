@@ -2,10 +2,12 @@ import Image from "next/image";
 import { ScrollPastMeButton } from "./_components/scrollPastMeButton";
 import { FloatingBox } from "./_components/floatingBox";
 import { Wave } from "./_components/svgs/wave";
-import { Badge } from "./_components/badge";
 import { ResumeJobContainer } from "./_components/resumeJobContainer";
+import resumeJson from "./resume.json"; // This import style requires "esModuleInterop", see "side notes"
 
 export default function Home() {
+  console.log(resumeJson.employmentHistory);
+  const employmentHistory = resumeJson.employmentHistory;
   return (
     <main className="">
       <div className="flex flex-col gap-4 justify-center items-center w-full min-h-[80vh] p-10 ">
@@ -71,6 +73,7 @@ export default function Home() {
         <div className="flex gap-12 bg-orange-300 h-[500px] w-full p-10 ">
           <div>This is me, bla bla bla</div>
           <Image
+            priority={false}
             className="w-[130px] h-[130px] rounded"
             height="130"
             width="130"
@@ -84,8 +87,10 @@ export default function Home() {
           upsideDown
         />
       </div>
-      <div className="flex gap-12 h-[500px] w-full p-10 ">
-        <ResumeJobContainer />
+      <div className="flex flex-col gap-12 h-[500px] w-full p-10 overflow-y-scroll">
+        {employmentHistory.map((employment) => (
+          <ResumeJobContainer employment={employment} />
+        ))}
       </div>
       <div className="flex flex-col w-full">
         <Wave

@@ -4,7 +4,7 @@ export const Badge = ({
   color,
   children,
 }: {
-  color: "pink" | "green" | "blue" | "orange";
+  color?: "pink" | "green" | "blue" | "orange";
   children: ReactNode;
 }) => {
   const getBgColor = () => {
@@ -29,4 +29,26 @@ export const Badge = ({
       {children}
     </div>
   );
+};
+
+export const TechnologyBadge = ({ children }: { children: string }) => {
+  const getColor = () => {
+    switch (children.toLowerCase()) {
+      case "typescript":
+      case "react.js":
+        return "blue";
+      case "node.js":
+      case "vue.js":
+        return "green";
+      case "javascript":
+        return "orange";
+      case "c#":
+      case "angular":
+      case "kotlin":
+        return "pink";
+      default:
+        return undefined;
+    }
+  };
+  return <Badge color={getColor()}>{children}</Badge>;
 };
