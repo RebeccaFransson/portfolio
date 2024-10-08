@@ -1,11 +1,15 @@
 "use client";
 
+import type { ReactNode } from "react";
+
 export const ScrollPastMeButton = ({
   id,
   className,
+  children,
 }: {
   id: string;
   className: string;
+  children: ReactNode;
 }) => {
   const scrollTo = (hash: string) => {
     document
@@ -15,11 +19,10 @@ export const ScrollPastMeButton = ({
   return (
     <button
       id={id}
-      className={`${className} group flex items-center gap-2 -scroll-mt-20`}
-      color="toned"
+      className={`${className} -scroll-mt-20`}
       onClick={() => scrollTo(id)}
     >
-      Read more
+      {children}
     </button>
   );
 };

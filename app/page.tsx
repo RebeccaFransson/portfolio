@@ -56,9 +56,11 @@ export default function Home() {
       </div>
       <div className="relative flex flex-col w-full">
         <ScrollPastMeButton
-          className=" absolute top-12 left-[26vw] text-pink-400"
+          className="absolute top-[5vh] left-10 text-pink-400 bg-pink-50 rounded-full py-2 px-4 hover:bg-pink-100"
           id={"knowMore"}
-        />
+        >
+          About me
+        </ScrollPastMeButton>
         <Wave
           animate
           viewBox="200 500 200 70"
