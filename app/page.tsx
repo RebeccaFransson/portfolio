@@ -82,15 +82,15 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="relative">
-        <div className="absolute top-0 w-full">
+      <div className="relative ">
+        <div className="absolute top-0 w-full ">
           <Wave
             viewBox="500 490 100 70"
             colors={{ front: "fill-orange-300", back: "fill-pink-400" }}
             upsideDown
           />
         </div>
-        <div className="flex flex-col gap-48 p-10 h-[800px] pt-[250px] w-full overflow-y-scroll snap-y snap-mandatory">
+        <div className="flex flex-col gap-48 p-10 h-[800px] w-full overflow-y-scroll snap-y snap-mandatory">
           {employmentHistory.map((employment) => (
             <ResumeJobContainer employment={employment} />
           ))}
