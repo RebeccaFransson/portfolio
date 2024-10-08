@@ -19,7 +19,7 @@ const config: Config = {
       },
       animation: {
         "float-1": "upAndDown 4s ease-in infinite",
-        wave: "wave 30s linear infinite",
+        wave: "wave 30s linear 2",
       },
       keyframes: {
         upAndDown: {

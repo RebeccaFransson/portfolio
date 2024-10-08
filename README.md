@@ -3,6 +3,7 @@
 - [ ] Boxes move with mouse on landing page
 - [ ] Scrolling past first section displays the links to the projects in the header
 - [ ] Animate: typewriter for part of resume
+- [ ] Scroll in black/white section. Titles dates scroll and text opacity in/out as you scroll
 
 ## Getting Started
 

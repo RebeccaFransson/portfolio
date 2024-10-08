@@ -2,6 +2,8 @@ import Image from "next/image";
 import { ScrollPastMeButton } from "./_components/scrollPastMeButton";
 import { FloatingBox } from "./_components/floatingBox";
 import { Wave } from "./_components/svgs/wave";
+import { Badge } from "./_components/badge";
+import { ResumeJobContainer } from "./_components/resumeJobContainer";
 
 export default function Home() {
   return (
@@ -82,23 +84,17 @@ export default function Home() {
           upsideDown
         />
       </div>
-      <div>
-        <div className="flex gap-12 h-[500px] w-full p-10 ">hellooooo</div>
+      <div className="flex gap-12 h-[500px] w-full p-10 ">
+        <ResumeJobContainer />
       </div>
       <div className="flex flex-col w-full">
         <Wave
           viewBox="500 490 100 70"
           colors={{ front: "fill-green-400", back: "fill-blue-400" }}
         />
-        <div className="flex gap-12 bg-green-400 h-[500px] w-full p-10 ">
+        <div className="flex gap-12 bg-green-400 h-[100px] w-full p-10 ">
           hellooooo
         </div>
-
-        <Wave
-          viewBox="200 500 200 70"
-          colors={{ front: "fill-green-400", back: "fill-blue-400" }}
-          upsideDown
-        />
       </div>
     </main>
   );
