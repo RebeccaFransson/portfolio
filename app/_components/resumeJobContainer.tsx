@@ -14,7 +14,7 @@ export const ResumeJobContainer = ({
 }) => {
   console.log(employment);
   return (
-    <div className="flex gap-24 w-full justify-between min-h-[500px]">
+    <div className="flex gap-24 w-full justify-between min-h-[450px] snap-always snap-end last:pb-96">
       <div className="flex flex-col gap-2 h-full md:min-w-[490px]">
         <h3 className="text-black dark:text-white font-extrabold text-6xl">
           {employment.company}
@@ -34,7 +34,7 @@ export const ResumeJobContainer = ({
         </div>
       </div>
       <div className="flex flex-col gap-2 w-full items-center">
-        <div className="flex flex-col gap-2 bg-pink-50 dark:bg-gray-800 rounded-3xl rounded-tr w-fit p-6">
+        <div className="flex flex-col gap-2 bg-pink-50 dark:bg-zinc-900 border border-pink-100 dark:border-zinc-800 rounded-3xl rounded-tr w-fit p-6">
           {employment.description}
         </div>
       </div>

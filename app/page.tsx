@@ -90,7 +90,7 @@ export default function Home() {
             upsideDown
           />
         </div>
-        <div className="flex flex-col gap-12 p-10 h-[800px] pt-[300px] w-full overflow-y-scroll">
+        <div className="flex flex-col gap-48 p-10 h-[800px] pt-[250px] w-full overflow-y-scroll snap-y snap-mandatory">
           {employmentHistory.map((employment) => (
             <ResumeJobContainer employment={employment} />
           ))}
