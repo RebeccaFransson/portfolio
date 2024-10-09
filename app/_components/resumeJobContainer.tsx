@@ -36,7 +36,7 @@ export const ResumeJobContainer = ({
         </div>
         <div className="flex gap-2">
           {employment.technologies.map((tech) => (
-            <TechnologyBadge>{tech}</TechnologyBadge>
+            <TechnologyBadge key={tech}>{tech}</TechnologyBadge>
           ))}
         </div>
       </div>

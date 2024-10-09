@@ -19,7 +19,7 @@ export default function Home() {
               <div className="flex gap-4 items-center">
                 <h1 className=" font-extrabold text-7xl ">
                   Hello world, <br />
-                  I'm <span className="text-pink-400">Rebecca</span>!
+                  I&apos;m <span className="text-pink-400">Rebecca</span>!
                 </h1>
               </div>
 
@@ -52,7 +52,7 @@ export default function Home() {
               <div className="flex flex-col text-white dark:text-black">
                 <span className=" font-bold text-xl">Resume</span>
                 <span className=" text-xs">
-                  Want to know what I've done the last years?
+                  Want to know what I&apos;ve done the last years?
                 </span>
               </div>
             </FloatingBox>
@@ -94,7 +94,10 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-48 p-10 h-[800px] w-full overflow-y-scroll snap-y snap-mandatory">
           {employmentHistory.map((employment) => (
-            <ResumeJobContainer employment={employment} />
+            <ResumeJobContainer
+              key={employment.company}
+              employment={employment}
+            />
           ))}
         </div>
         <div className="absolute bottom-0 w-full">
@@ -106,9 +109,9 @@ export default function Home() {
       </div>
       <div className="flex flex-col gap-4 bg-green-400 w-full pt-0 p-10 ">
         <h6 className="text-5xl font-extrabold drop-shadow-xl">
-          <span className="text-white/60">That's </span>
+          <span className="text-white/60">That&apos;s </span>
           <span className="text-white/80 ">my story</span>
-          <span className="text-white/60">, now it's </span>
+          <span className="text-white/60">, now it&apos;s </span>
           <span className="text-white ">your turn!</span>
         </h6>
         <div className="flex gap-4 items-center pl-2 font-mono">
