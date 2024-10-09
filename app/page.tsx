@@ -4,10 +4,8 @@ import { FloatingBox } from "./_components/floatingBox";
 import { Wave } from "./_components/svgs/wave";
 import { ResumeJobContainer } from "./_components/resumeJobContainer";
 import resumeJson from "./resume.json";
-import { TechnologyBadge } from "./_components/badge";
 import Link from "next/link";
-import { CopyIcon } from "./_components/icon/copy";
-import { Button, Copy } from "./_components/copy";
+import { Copy } from "./_components/copy";
 
 export default function Home() {
   const employmentHistory = resumeJson.employmentHistory;
@@ -122,8 +120,8 @@ export default function Home() {
               rebeccaellenfransson@gmail.com
             </Link>
             <Copy text="rebeccaellenfransson@gmail.com" />
-            <button></button>
           </div>
+          <div className="border-b border-white w-6"></div>
           <Link
             href="https://www.github.com/rebeccafransson"
             target="_blank"

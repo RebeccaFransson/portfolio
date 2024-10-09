@@ -6,7 +6,8 @@
       "endDate": "August 2024",
       "position": "Fullstack Developer",
       "technologies": ["TypeScript", "React.js", "Next.js", "Node.js"],
-      "description": "Contributed from the beginning to the successful launch of a cryptocurrency trading application that pioneered the concept of a coin functioning as an index fund, backed by underlying assets in the form of other coins. Collaborated within a small development team of three members, primarily responsible for frontend development and data retrieval from both smart contracts and internally developed APIs. The contract ended in August 2024 due to insufficient funding and challenges in securing new investors. Interested? Feel free to send me a message, and I’ll be happy to inform the founders!"
+      "images": ["/slice.png"],
+      "description": "Contributed from the beginning to the launch of a cryptocurrency trading application that pioneered the concept of a coin functioning as an index fund, backed by underlying assets in the form of other coins. Collaborated within a small development team of three members, primarily responsible for frontend development and data retrieval from both smart contracts and internally developed APIs. The contract ended in August 2024 due to insufficient funding and challenges in securing new investors. Interested? Feel free to send me a message, and I’ll be happy to inform the founders!"
     },
     {
       "company": "Prisjakt",
@@ -14,6 +15,7 @@
       "endDate": "March 2024",
       "position": "Fullstack Developer",
       "technologies": ["TypeScript", "React.js", "Next.js", "Node.js"],
+      "images": ["/prisjakt.png", "prisjakt_2.png"],
       "description": "Prisjakt.se or PriceSpy.co.uk is a comparison app to help consumers find the best deal on a product. Placed as a fullstack developer in a team that focused on the web app, creating new features and improving SEO on all pages. The site went from 32,000 to 51,000 sessions thanks to my team’s dedicated SEO efforts. I also created new admin services and made significant technical and optimization improvements to the site, including Next.js and TanStack. I assumed the scrum-master role after a few months. My latest project involved creating a head for the headless CMS Sanity.io and rewriting our frontend using Next.js. A continuous part of my job was creating interactive designs from Figma sketches."
     },
     {
@@ -22,6 +24,7 @@
       "endDate": "April 2023",
       "position": "Software Engineer",
       "technologies": ["Node.js"],
+      "images": ["/boole.png"],
       "description": "Optimized and debugged dependencies and trading algorithms for a Basis Arbitrage crypto trading engine. Set up AWS with VPN proxy to securely host the server connection with the lowest latency. The trading engine is currently operational and profitable, managing around $10 million worth of assets."
     },
     {
@@ -30,7 +33,8 @@
       "endDate": "May 2022",
       "position": "Fullstack Developer",
       "technologies": ["JavaScript", "C#", "TypeScript", "Angular"],
-      "description": "As a JavaScript developer, I created solutions for integrating third-party products. Projects included: 1) A JavaScript application to make Amazon Connect Softphone integratable with Jabra headsets. 2) A JavaScript-Salesforce app to show users real-time updates and statistics during ongoing calls. 3) Rewriting the desktop app into a web app and adding new features such as device management for Jabra devices in offices."
+      "images": ["/jabra.png"],
+      "description": "As a JavaScript developer, I created solutions for integrating third-party products. Projects included: 1) A JavaScript application to make Amazon Connect Softphone integratable with Jabra headsets. 2) A JavaScript-Salesforce app to show users real-time updates and statistics during ongoing calls. 3) Rewriting the \"Jabra+ Admin\" desktop app into a web app and adding new features such as device management for Jabra devices in offices. https://www.jabra.com/en-apac/software-and-services/jabra-plus"
     },
     {
       "company": "Hejmo Kredit AB",
@@ -38,6 +42,7 @@
       "endDate": "December 2020",
       "position": "Fullstack Developer",
       "technologies": ["Kotlin", "JavaScript", "Vue.js"],
+      "images": [],
       "description": "Transitioned to Hejmo, a sister company of Kollektiva, where I focused on developing the mortgage loan app, enabling Swedish citizens to transfer their loans from big banks to Hejmo for a lower interest rate. I was involved in the entire product lifecycle and took on the role of scrum-master during my final year, working within an agile development team of 7 members."
     },
     {
@@ -46,6 +51,7 @@
       "endDate": "August 2018",
       "position": "Fullstack Developer",
       "technologies": ["Java", "JavaScript", "Vue.js"],
+      "images": ["/kollektiva.png"],
       "description": "In my initial junior role as a fullstack developer at Kollektiva, I contributed to developing a web application with a user base of over 35,000. This platform used crowd intelligence to help Swedish citizens manage their pension savings. I worked in an agile development environment with a team of five members."
     }
   ],

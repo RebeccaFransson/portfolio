@@ -54,6 +54,7 @@ const config: Config = {
       },
       transitionProperty: {
         translate: "translateY, translateX",
+        height: "height",
       },
     },
   },
