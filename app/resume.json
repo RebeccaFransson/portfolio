@@ -49,12 +49,6 @@
       "description": "In my initial junior role as a fullstack developer at Kollektiva, I contributed to developing a web application with a user base of over 35,000. This platform used crowd intelligence to help Swedish citizens manage their pension savings. I worked in an agile development environment with a team of five members."
     }
   ],
-  "education": {
-    "degree": "Bachelor's Degree",
-    "field": "Computer Science",
-    "institution": "Linnaeus University",
-    "location": "Kalmar, Sweden"
-  },
   "skills": [
     "JavaScript (React, React Query, Vue.js, Next.js, Angular)",
     "TypeScript",

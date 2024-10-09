@@ -3,11 +3,15 @@ import { ScrollPastMeButton } from "./_components/scrollPastMeButton";
 import { FloatingBox } from "./_components/floatingBox";
 import { Wave } from "./_components/svgs/wave";
 import { ResumeJobContainer } from "./_components/resumeJobContainer";
-import resumeJson from "./resume.json"; // This import style requires "esModuleInterop", see "side notes"
+import resumeJson from "./resume.json";
+import { TechnologyBadge } from "./_components/badge";
+import Link from "next/link";
+import { CopyIcon } from "./_components/icon/copy";
+import { Button, Copy } from "./_components/copy";
 
 export default function Home() {
-  console.log(resumeJson.employmentHistory);
   const employmentHistory = resumeJson.employmentHistory;
+  const skills = resumeJson.skills;
   return (
     <main className="">
       <div className="flex flex-col gap-4 justify-center items-center w-full min-h-[80vh] p-10 ">
@@ -102,11 +106,60 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="flex flex-col w-full">
-        <div className="flex gap-12 bg-green-400 h-[100px] w-full p-10 ">
-          hellooooo
+      <div className="flex flex-col gap-4 bg-green-400 w-full pt-0 p-10 ">
+        <h6 className="text-5xl font-extrabold drop-shadow-xl">
+          <span className="text-white/60">That's </span>
+          <span className="text-white/80 ">my story</span>
+          <span className="text-white/60">, now it's </span>
+          <span className="text-white ">your turn!</span>
+        </h6>
+        <div className="flex gap-4 items-center pl-2 font-mono">
+          <div className="flex gap-2 items-center">
+            <Link
+              href="mailto:rebeccaellenfransson@gmail.com"
+              className="text-white hover:text-white/60"
+            >
+              rebeccaellenfransson@gmail.com
+            </Link>
+            <Copy text="rebeccaellenfransson@gmail.com" />
+            <button></button>
+          </div>
+          <Link
+            href="https://www.github.com/rebeccafransson"
+            target="_blank"
+            className="text-white hover:text-white/60"
+          >
+            rebeccafransson@github
+          </Link>
+          <div className="border-b border-white w-6"></div>
+          <Link
+            href="https://www.linkedin.com/in/rebecca-fransson/"
+            target="_blank"
+            className="text-white hover:text-white/60"
+          >
+            rebeccafransson@linkedIn
+          </Link>
         </div>
       </div>
     </main>
   );
 }
+/*
+
+          <div className="flex flex-wrap">
+            {skills.map((skill) => {
+              const containsFrameworks = skill.split("(");
+              // If the skill contains frameworks add it as a tooltip
+              console.log(containsFrameworks);
+              return (
+                <>
+                  <TechnologyBadge>{containsFrameworks[0]}</TechnologyBadge>
+                  {containsFrameworks.length > 1 ? (
+                    <div>{containsFrameworks[1].split(")")}</div>
+                  ) : null}
+                </>
+              );
+            })}
+          </div>
+
+*/

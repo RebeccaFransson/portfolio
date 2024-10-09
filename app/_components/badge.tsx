@@ -37,11 +37,14 @@ export const TechnologyBadge = ({ children }: { children: string }) => {
       case "typescript":
       case "react.js":
       case "java":
+      case "css":
         return "blue";
       case "node.js":
       case "vue.js":
         return "green";
       case "javascript":
+      case "html":
+      case "git":
         return "orange";
       case "c#":
       case "angular":

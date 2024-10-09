@@ -18,7 +18,6 @@ const config: Config = {
         "102": "1.02",
       },
       animation: {
-        "float-1": "upAndDown 4s ease-in infinite",
         wave: "wave 30s linear 2",
       },
       keyframes: {
