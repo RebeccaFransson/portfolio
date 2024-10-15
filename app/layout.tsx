@@ -29,7 +29,7 @@ export default function RootLayout({
               <div className="flex gap-4">
                 <Link
                   href="/"
-                  className="text-pink-400 font-extrabold hover:text-pink-500"
+                  className="text-pink-400 font-extrabold hover:text-pink-500 cursor-pointer"
                 >
                   <h2 className="pr-4">REBECCA FRANSSON</h2>
                 </Link>

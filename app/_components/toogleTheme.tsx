@@ -11,20 +11,18 @@ export default function ToggleTheme() {
 
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
+  const isDarkMode = resolvedTheme === "dark";
 
-  if (resolvedTheme === "dark") {
-    return (
-      <button onClick={() => setTheme("light")}>
-        <Sun />
-      </button>
-    );
-  }
-
-  if (resolvedTheme === "light") {
-    return (
-      <button onClick={() => setTheme("dark")}>
-        <Moon />
-      </button>
-    );
-  }
+  return (
+    <button
+      onClick={() => setTheme(isDarkMode ? "light" : "dark")}
+      className={`cursor-pointer fill-none ${
+        isDarkMode
+          ? "stroke-zinc-200 hover:stroke-white"
+          : "stroke-zinc-600 hover:stroke-black"
+      }`}
+    >
+      {isDarkMode ? <Sun /> : <Moon />}
+    </button>
+  );
 }
