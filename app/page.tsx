@@ -47,10 +47,13 @@ export default function Home() {
                 <span className=" text-xs">Project similar to</span>
               </div>
             </FloatingBox>
-            <FloatingBox className="bg-green-400 translate-x-4 flex gap-4 items-center">
+            <FloatingBox
+              anchorId="employmentHistory"
+              className="bg-green-400 translate-x-4 flex gap-4 items-center"
+            >
               <div className="bg-pink-400 rounded-full w-10 h-10"></div>
               <div className="flex flex-col text-white dark:text-black">
-                <span className=" font-bold text-xl">Resume</span>
+                <span className=" font-bold text-xl text-left">Resume</span>
                 <span className=" text-xs">
                   Want to know what I&apos;ve done the last years?
                 </span>
@@ -92,7 +95,10 @@ export default function Home() {
             upsideDown
           />
         </div>
-        <div className="flex flex-col gap-48 p-10 h-[800px] w-full overflow-y-scroll snap-y snap-mandatory">
+        <div
+          id="employmentHistory"
+          className="flex flex-col gap-48 p-10 h-[800px] w-full overflow-y-scroll snap-y snap-mandatory"
+        >
           {employmentHistory.map((employment) => (
             <ResumeJobContainer
               key={employment.company}

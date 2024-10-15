@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { ScrollTo } from "../utils";
 
 export const ScrollPastMeButton = ({
   id,
@@ -11,16 +12,11 @@ export const ScrollPastMeButton = ({
   className: string;
   children: ReactNode;
 }) => {
-  const scrollTo = (hash: string) => {
-    document
-      .getElementById(hash)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
   return (
     <button
       id={id}
       className={`cursor-pointer ${className} -scroll-mt-20`}
-      onClick={() => scrollTo(id)}
+      onClick={() => ScrollTo(id)}
     >
       {children}
     </button>
