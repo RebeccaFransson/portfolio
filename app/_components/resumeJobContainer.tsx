@@ -19,7 +19,7 @@ export const ResumeJobContainer = ({
   const [imageInFocus, setImageInFocus] = useState(false);
   const firstImage = employment.images[0];
   const restOfImages = employment.images.slice(1);
-  console.log(restOfImages);
+
   return (
     <div className="flex gap-16 w-full justify-between min-h-[550px] snap-always snap-end last:pb-96 first:pt-[200px]">
       <div className="flex flex-col gap-2 h-full md:min-w-[490px]">
