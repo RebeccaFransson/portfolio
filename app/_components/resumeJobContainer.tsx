@@ -72,7 +72,7 @@ export const ResumeJobContainer = ({
           <div
             className={` transition-all ${
               !imageInFocus
-                ? "max-h-[190px] sm:max-h-[500px] overflow-scroll"
+                ? "max-h-[190px]  overflow-scroll"
                 : "max-h-[70px]  overflow-clip"
             }  `}
           >
