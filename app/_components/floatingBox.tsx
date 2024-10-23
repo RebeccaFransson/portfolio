@@ -15,7 +15,7 @@ export const FloatingBox = ({
     return (
       <button
         onClick={() => ScrollTo(anchorId)}
-        className={`${className} p-6 rounded transition hover:scale-102 max-w-[460px]`}
+        className={`${className} p-4 sm:p-6 rounded transition hover:scale-102 max-w-[460px]`}
       >
         {children}
       </button>
@@ -23,7 +23,7 @@ export const FloatingBox = ({
   }
   return (
     <div
-      className={`${className} p-6 rounded transition hover:scale-102 max-w-[460px]`}
+      className={`${className} p-4 sm:p-6 rounded transition hover:scale-102 max-w-[460px]`}
     >
       {children}
     </div>

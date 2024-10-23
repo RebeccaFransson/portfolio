@@ -7,7 +7,8 @@ export const AvatarOnMouseMove = () => {
   const onMouseMove = (e: MouseEvent) => {
     if (objToMove) {
       const y = e.clientY;
-      const pxToMove = -y / 9;
+      let pxToMove = -y / 9;
+      if (pxToMove < -123) pxToMove = -123;
       objToMove.style.top = `${pxToMove + 70}px`;
     }
   };

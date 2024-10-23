@@ -25,8 +25,8 @@ export default function RootLayout({
       <body className={`${inter.className} bg-white dark:bg-black`}>
         <Providers>
           <div className="sticky top-0 z-20 group text-white  bg-white/70 dark:bg-black/70 backdrop-blur-sm">
-            <div className="flex gap-4 justify-between sm:gap-10 items-center flex-wrap py-4 px-10">
-              <div className="flex gap-4">
+            <div className="flex gap-4 justify-between sm:gap-10 items-center flex-wrap py-4 px-4 sm:px-10">
+              <div className="flex gap-4 sm:gap-10">
                 <Link
                   href="/"
                   className="text-pink-400 font-extrabold hover:text-pink-500 cursor-pointer"

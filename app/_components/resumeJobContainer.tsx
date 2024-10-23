@@ -18,15 +18,14 @@ export const ResumeJobContainer = ({
 }) => {
   const [imageInFocus, setImageInFocus] = useState(false);
   const firstImage = employment.images[0];
-  const restOfImages = employment.images.slice(1);
 
   return (
-    <div className="flex gap-16 w-full justify-between min-h-[550px] snap-always snap-end last:pb-96 first:pt-[200px]">
-      <div className="flex flex-col gap-2 h-full md:min-w-[490px]">
-        <h3 className="text-black dark:text-white font-extrabold text-6xl">
+    <div className="flex sm:flex-row flex-col gap-4 sm:gap-16 w-full justify-start sm:justify-between min-h-[550px] snap-always snap-center sm:snap-end last:mb-[500px] first:pt-[150px] sm:first:pt-[200px]">
+      <div className="flex flex-col gap-2 sm:h-full md:min-w-[490px]">
+        <h3 className="text-black dark:text-white font-extrabold text-5xl sm:text-6xl">
           {employment.company}
         </h3>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           <span className="text-green-400 font-extrabold">
             {employment.position}
           </span>
@@ -34,7 +33,7 @@ export const ResumeJobContainer = ({
             {employment.startDate} - {employment.endDate}
           </span>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           {employment.technologies.map((tech) => (
             <TechnologyBadge key={tech}>{tech}</TechnologyBadge>
           ))}
@@ -66,11 +65,17 @@ export const ResumeJobContainer = ({
         <div
           className={`flex flex-col gap-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-3xl rounded-tr w-fit  ${
             !imageInFocus
-              ? "max-h-[500px] p-6"
-              : "max-h-[65px] hover:max-h-[70px] px-6 py-2"
-          } transition-all cursor-pointer`}
+              ? "py-2 sm:py-6 px-4 sm:px-6"
+              : "px-4 sm:px-6 py-2 hover:py-3"
+          } transition-all cursor-pointer overflow-scroll`}
         >
-          <div className={`h-full overflow-clip `}>
+          <div
+            className={` transition-all ${
+              !imageInFocus
+                ? "max-h-[190px] sm:max-h-[500px] overflow-scroll"
+                : "max-h-[70px]  overflow-clip"
+            }  `}
+          >
             {employment.description}
           </div>
         </div>

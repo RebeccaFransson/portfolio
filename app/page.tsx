@@ -13,25 +13,25 @@ export default function Home() {
   const skills = resumeJson.skills;
   return (
     <main className="">
-      <div className="flex flex-col gap-4 justify-center items-center w-full min-h-[80vh] p-10 ">
-        <div className="flex gap-12 items-center justify-center py-32">
+      <div className="flex flex-col gap-4 justify-center items-center w-full min-h-[80vh] p-4 sm:p-10 ">
+        <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-center justify-center py-4 sm:py-32">
           <div className=" p-4 max-w-[650px]">
             <div className="flex flex-col gap-2 rounded  text-black dark:text-white">
               <div className="flex gap-4 items-center">
-                <h1 className=" font-extrabold text-7xl ">
+                <h1 className=" font-extrabold text-5xl sm:text-7xl ">
                   Hello world, <br />
                   I&apos;m <span className="text-pink-400">Rebecca</span>!
                 </h1>
               </div>
 
-              <p className="font-semibold text-xl">
+              <p className="font-semibold text-lg sm:text-xl">
                 Results-driven and enthusiastic developer with a passion for
                 creating features, building beautiful and reusable components.
               </p>
             </div>
           </div>
           <div className="flex flex-col gap-4 w-full">
-            <FloatingBox className="bg-orange-300 translate-x-2 flex gap-4 items-center">
+            <FloatingBox className="bg-orange-300 sm:translate-x-2 flex gap-4 items-center">
               <div className="bg-pink-400 rounded-full w-10 h-10"></div>
               <div className="flex flex-col text-white dark:text-black">
                 <span className=" font-bold text-xl">Fire calculator</span>
@@ -50,7 +50,7 @@ export default function Home() {
             </FloatingBox>
             <FloatingBox
               anchorId="employmentHistory"
-              className="bg-green-400 translate-x-4 flex gap-4 items-center"
+              className="bg-green-400 sm:translate-x-4 flex gap-4 items-center"
             >
               <div className="bg-pink-400 rounded-full w-10 h-10"></div>
               <div className="flex flex-col text-white dark:text-black">
@@ -100,7 +100,7 @@ export default function Home() {
         </div>
         <div
           id="employmentHistory"
-          className="flex flex-col gap-48 p-10 h-[800px] w-full overflow-y-scroll snap-y snap-mandatory"
+          className="flex flex-col gap-48 p-4 sm:p-10 h-[800px] w-full overflow-y-scroll snap-y snap-mandatory"
         >
           {employmentHistory.map((employment) => (
             <ResumeJobContainer
@@ -116,14 +116,14 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="flex flex-col gap-4 bg-green-400 w-full pt-0 p-10 ">
-        <h6 className="text-5xl font-extrabold drop-shadow-xl">
+      <div className="flex flex-col gap-8 sm:gap-4 bg-green-400 w-full pt-0 p-10 ">
+        <h6 className="text-4xl sm:text-5xl font-extrabold drop-shadow-xl">
           <span className="text-white/60">That&apos;s </span>
           <span className="text-white/80 ">my story</span>
           <span className="text-white/60">, now it&apos;s </span>
           <span className="text-white ">your turn!</span>
         </h6>
-        <div className="flex gap-4 items-center pl-2 font-mono">
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-center pl-2 font-mono">
           <div className="flex gap-2 items-center">
             <Link
               href="mailto:rebeccaellenfransson@gmail.com"
