@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export const EmojiOnMouseMove = () => {
+export const AvatarOnMouseMove = () => {
   const [objToMove, setObjToMove] = useState<HTMLElement | null>(null);
   const onMouseMove = (e: MouseEvent) => {
     if (objToMove) {
@@ -27,7 +27,7 @@ export const EmojiOnMouseMove = () => {
       className="w-[130px] h-[130px] absolute top-[70px] right-0 -z-10"
       height="130"
       width="130"
-      src="/emoji.png"
+      src="/avatar.png"
       alt="a profile picture of rebecca"
     />
   );

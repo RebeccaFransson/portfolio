@@ -6,7 +6,7 @@ import { ResumeJobContainer } from "./_components/resumeJobContainer";
 import resumeJson from "./resume.json";
 import Link from "next/link";
 import { Copy } from "./_components/copy";
-import { EmojiOnMouseMove } from "./_components/emojiOnMousemove";
+import { AvatarOnMouseMove } from "./_components/avatarOnMousemove";
 
 export default function Home() {
   const employmentHistory = resumeJson.employmentHistory;
@@ -76,7 +76,7 @@ export default function Home() {
             viewBox="200 500 200 70"
             colors={{ front: "fill-orange-300", back: "fill-pink-400" }}
           />
-          <EmojiOnMouseMove />
+          <AvatarOnMouseMove />
         </div>
         <div className="flex gap-12 bg-orange-300 h-[500px] w-full p-10 ">
           <div>This is me, bla bla bla</div>
