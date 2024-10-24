@@ -106,16 +106,16 @@ export default function Home() {
             </div>
             <div className="bg-white/50 dark:bg-black/80 px-2 py-8 rounded-xl order-last sm:order-none">
               <p className="text-pink-400 text-2xl font-extrabold text-center drop-shadow-sm">
-                I'm currently looking for my next passion project!
+                I&apos;m currently looking for my next passion project!
               </p>
             </div>
             <div className="bg-pink-400/50 py-4 px-6 rounded-xl col-span-2">
               <p className="drop-shadow-sm font-semibold text-white">
                 In addition to my technical skills, I value teamwork highly and
                 believe that fostering a positive, collaborative environment is
-                crucial to a team’s success. I strive to support my peers and
-                maintain open communication, as I’ve found that when everyone
-                feels empowered and valued, it naturally leads to them
+                crucial to a team&apos;s success. I strive to support my peers
+                and maintain open communication, as I&apos;ve found that when
+                everyone feels empowered and valued, it naturally leads to them
                 performing at their best.
               </p>
             </div>
