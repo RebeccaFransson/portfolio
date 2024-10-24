@@ -31,7 +31,8 @@ export default function RootLayout({
                   href="/"
                   className="text-pink-400 font-extrabold hover:text-pink-500 cursor-pointer"
                 >
-                  <h2 className="pr-4">REBECCA FRANSSON</h2>
+                  <h2 className="pr-4 sm:block hidden">REBECCA FRANSSON</h2>
+                  <h2 className="pr-4 sm:hidden">RF</h2>
                 </Link>
 
                 <ScrollToLink
@@ -39,6 +40,13 @@ export default function RootLayout({
                   className="text-pink-400 hover:text-pink-500"
                 >
                   ABOUT
+                </ScrollToLink>
+
+                <ScrollToLink
+                  id="employmentHistory"
+                  className="text-pink-400 hover:text-pink-500"
+                >
+                  RESUME
                 </ScrollToLink>
               </div>
               <ToggleTheme />

@@ -16,11 +16,7 @@ export default function ToggleTheme() {
   return (
     <button
       onClick={() => setTheme(isDarkMode ? "light" : "dark")}
-      className={`cursor-pointer fill-none ${
-        isDarkMode
-          ? "stroke-zinc-200 hover:stroke-white"
-          : "stroke-zinc-600 hover:stroke-black"
-      }`}
+      className={`cursor-pointer fill-none stroke-pink-400 hover:stroke-pink-300`}
     >
       {isDarkMode ? <Sun /> : <Moon />}
     </button>
