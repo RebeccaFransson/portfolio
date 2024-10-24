@@ -15,10 +15,18 @@ export const FlipAvatarProfile = ({ className }: { className?: string }) => (
       <div className="absolute inset-0 rotate-y-180 [backface-visibility:hidden]">
         <Image
           priority={false}
-          className="h-full w-full rounded-full "
+          className="h-full w-full rounded-full hidden dark:block "
           height="130"
           width="130"
           src="/profile.png"
+          alt="a profile picture of rebecca"
+        />
+        <Image
+          priority={false}
+          className="h-full w-full rounded-full dark:hidden object-cover "
+          height="130"
+          width="130"
+          src="/profile_2.png"
           alt="a profile picture of rebecca"
         />
       </div>
