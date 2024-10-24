@@ -7,6 +7,7 @@ import resumeJson from "./resume.json";
 import Link from "next/link";
 import { Copy } from "./_components/copy";
 import { AvatarOnMouseMove } from "./_components/avatarOnMousemove";
+import { FlipAvatarProfile } from "./_components/flipAvatarProfile";
 
 export default function Home() {
   const employmentHistory = resumeJson.employmentHistory;
@@ -78,16 +79,47 @@ export default function Home() {
           />
           <AvatarOnMouseMove />
         </div>
-        <div className="flex gap-12 bg-orange-300 h-[500px] w-full p-10 ">
-          <div>This is me, bla bla bla</div>
-          <Image
-            priority={false}
-            className="w-[130px] h-[130px] rounded"
-            height="130"
-            width="130"
-            src="/profile.png"
-            alt="a profile picture of rebecca"
-          />
+        <div className="flex flex-col gap-10 bg-orange-300 ">
+          <div className="grid grid-rows-3 grid-cols-3 gap-8 w-full px-10 sm:justify-evenly items-center">
+            <div className=" bg-pink-300 dark:bg-pink-400 py-4 px-6 rounded-xl col-span-2 font-semibold text-pink-50 ">
+              <p className="drop-shadow-sm">
+                I am a fullstack developer with a strong focus on frontend
+                technologies. Over the past six years, I have honed my expertise
+                in TypeScript, gaining a deep understanding of the language and
+                its nuances, along with best practices that ensure efficient,
+                clean, and maintainable code.
+              </p>
+            </div>
+            <div className="col-span-1 row-span-2">
+              <FlipAvatarProfile className="h-[200px] w-[200px] sm:h-[300px] sm:w-[300px]" />
+            </div>
+            <div className="bg-white/90  dark:bg-black/90 py-4 px-6 rounded-xl row-span-2">
+              <p className="drop-shadow-sm font-semibold text-orange-400">
+                One of my key strengths lies in transforming Figma designs into
+                dynamic, responsive web experiences. I am particularly
+                passionate about building reusable components that are not only
+                functional but also aesthetically aligned with the overall
+                design vision. I take great pride in writing code that is
+                well-structured, easy to understand, and appreciated by my
+                colleagues.
+              </p>
+            </div>
+            <div className="bg-white/50 dark:bg-black/80 px-2 py-8 rounded-xl ">
+              <p className="text-pink-400 text-2xl font-extrabold text-center drop-shadow-sm">
+                I'm currently looking for my next passion project!
+              </p>
+            </div>
+            <div className="bg-pink-400/50 py-4 px-6 rounded-xl col-span-2">
+              <p className="drop-shadow-sm font-semibold text-white">
+                In addition to my technical skills, I value teamwork highly and
+                believe that fostering a positive, collaborative environment is
+                crucial to a team’s success. I strive to support my peers and
+                maintain open communication, as I’ve found that when everyone
+                feels empowered and valued, it naturally leads to them
+                performing at their best.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <div className="relative ">
@@ -156,20 +188,29 @@ export default function Home() {
 }
 /*
 
-          <div className="flex flex-wrap">
-            {skills.map((skill) => {
-              const containsFrameworks = skill.split("(");
-              // If the skill contains frameworks add it as a tooltip
-              console.log(containsFrameworks);
-              return (
-                <>
-                  <TechnologyBadge>{containsFrameworks[0]}</TechnologyBadge>
-                  {containsFrameworks.length > 1 ? (
-                    <div>{containsFrameworks[1].split(")")}</div>
-                  ) : null}
-                </>
-              );
-            })}
-          </div>
+          <p>
+                I am a fullstack developer with a strong focus on frontend
+                technologies. Over the past six years, I have honed my expertise
+                in TypeScript, gaining a deep understanding of the language and
+                its nuances, along with best practices that ensure efficient,
+                clean, and maintainable code.
+              </p>
+              <p>
+                One of my key strengths lies in transforming Figma designs into
+                dynamic, responsive web experiences. I am particularly
+                passionate about building reusable components that are not only
+                functional but also aesthetically aligned with the overall
+                design vision. I take great pride in writing code that is
+                well-structured, easy to understand, and appreciated by my
+                colleagues.
+              </p>
+              <p>
+                In addition to my technical skills, I value teamwork highly and
+                believe that fostering a positive, collaborative environment is
+                crucial to a team’s success. I strive to support my peers and
+                maintain open communication, as I’ve found that when everyone
+                feels empowered and valued, it naturally leads to them
+                performing at their best.
+              </p>
 
 */

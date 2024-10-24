@@ -1,4 +1,13 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
+
+const rotateY = plugin(function ({ addUtilities }) {
+  addUtilities({
+    ".rotate-y-180": {
+      transform: "rotateY(180deg)",
+    },
+  });
+});
 
 const config: Config = {
   darkMode: "class",
@@ -58,6 +67,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [rotateY],
 };
 export default config;
