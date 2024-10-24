@@ -80,8 +80,8 @@ export default function Home() {
           <AvatarOnMouseMove />
         </div>
         <div className="flex flex-col gap-10 bg-orange-300 ">
-          <div className="grid grid-rows-3 grid-cols-3 gap-8 w-full px-10 sm:justify-evenly items-center">
-            <div className=" bg-pink-300 dark:bg-pink-400 py-4 px-6 rounded-xl col-span-2 font-semibold text-pink-50 ">
+          <div className="flex flex-col sm:grid sm:grid-rows-3 sm:grid-cols-3 gap-8 w-full px-6 sm:px-10 sm:justify-evenly items-center">
+            <div className="self-end bg-pink-300 dark:bg-pink-400 py-4 px-6 rounded-xl col-span-2 font-semibold text-pink-50 ">
               <p className="drop-shadow-sm">
                 I am a fullstack developer with a strong focus on frontend
                 technologies. Over the past six years, I have honed my expertise
@@ -104,7 +104,7 @@ export default function Home() {
                 colleagues.
               </p>
             </div>
-            <div className="bg-white/50 dark:bg-black/80 px-2 py-8 rounded-xl ">
+            <div className="bg-white/50 dark:bg-black/80 px-2 py-8 rounded-xl order-last sm:order-none">
               <p className="text-pink-400 text-2xl font-extrabold text-center drop-shadow-sm">
                 I'm currently looking for my next passion project!
               </p>
@@ -186,31 +186,3 @@ export default function Home() {
     </main>
   );
 }
-/*
-
-          <p>
-                I am a fullstack developer with a strong focus on frontend
-                technologies. Over the past six years, I have honed my expertise
-                in TypeScript, gaining a deep understanding of the language and
-                its nuances, along with best practices that ensure efficient,
-                clean, and maintainable code.
-              </p>
-              <p>
-                One of my key strengths lies in transforming Figma designs into
-                dynamic, responsive web experiences. I am particularly
-                passionate about building reusable components that are not only
-                functional but also aesthetically aligned with the overall
-                design vision. I take great pride in writing code that is
-                well-structured, easy to understand, and appreciated by my
-                colleagues.
-              </p>
-              <p>
-                In addition to my technical skills, I value teamwork highly and
-                believe that fostering a positive, collaborative environment is
-                crucial to a team’s success. I strive to support my peers and
-                maintain open communication, as I’ve found that when everyone
-                feels empowered and valued, it naturally leads to them
-                performing at their best.
-              </p>
-
-*/
