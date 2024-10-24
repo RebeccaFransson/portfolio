@@ -20,7 +20,7 @@ export const ResumeJobContainer = ({
   const firstImage = employment.images[0];
 
   return (
-    <div className="flex sm:flex-row flex-col gap-4 sm:gap-16 w-full justify-start sm:justify-between min-h-[550px] snap-always snap-center sm:snap-end last:mb-[500px] first:pt-[150px] sm:first:pt-[200px]">
+    <div className="flex sm:flex-row flex-col gap-10 sm:gap-16 w-full justify-start sm:justify-between min-h-[550px] snap-always snap-center sm:snap-end last:mb-[500px] first:pt-[150px] sm:first:pt-[200px]">
       <div className="flex flex-col gap-2 sm:h-full md:min-w-[490px]">
         <h3 className="text-black dark:text-white font-extrabold text-5xl sm:text-6xl">
           {employment.company}
@@ -65,17 +65,11 @@ export const ResumeJobContainer = ({
         <div
           className={`flex flex-col gap-2 bg-zinc-50 dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 rounded-3xl rounded-tr w-fit  ${
             !imageInFocus
-              ? "py-2 sm:py-6 px-4 sm:px-6"
-              : "px-4 sm:px-6 py-2 hover:py-3"
-          } transition-all cursor-pointer overflow-scroll`}
+              ? "py-2 sm:py-6 px-4 sm:px-6 max-h-[190px] sm:max-h-[250px] overflow-y-auto"
+              : "px-4 sm:px-6 py-2 hover:py-3 max-h-[70px]  overflow-clip"
+          } transition-all cursor-pointer `}
         >
-          <div
-            className={` transition-all ${
-              !imageInFocus
-                ? "max-h-[190px]  overflow-scroll"
-                : "max-h-[70px]  overflow-clip"
-            }  `}
-          >
+          <div className={` transition-all ${!imageInFocus ? "" : ""}  `}>
             {employment.description}
           </div>
         </div>
