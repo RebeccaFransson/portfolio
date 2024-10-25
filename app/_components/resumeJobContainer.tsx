@@ -20,7 +20,7 @@ export const ResumeJobContainer = ({
   const firstImage = employment.images[0];
 
   return (
-    <div className="flex sm:flex-row flex-col gap-10 sm:gap-16 w-full justify-start sm:justify-between min-h-[550px] snap-always snap-center sm:snap-end last:mb-[500px] first:pt-[150px] sm:first:pt-[200px]">
+    <div className="flex sm:flex-row flex-col gap-10 sm:gap-16 w-full justify-start sm:justify-between min-h-[550px] snap-always snap-center sm:snap-end last:mb-[500px] first:pt-[150px] sm:first:pt-[200px] max-w-[2000px]">
       <div className="flex flex-col gap-2 sm:h-full md:min-w-[490px]">
         <h3 className="text-black dark:text-white font-extrabold text-5xl sm:text-6xl">
           {employment.company}
@@ -40,7 +40,7 @@ export const ResumeJobContainer = ({
         </div>
       </div>
       <div
-        className="flex flex-col gap-2 w-full items-center"
+        className="flex flex-col gap-2 w-full items-end"
         onClick={() => setImageInFocus(!imageInFocus)}
       >
         {firstImage ? (
@@ -69,7 +69,7 @@ export const ResumeJobContainer = ({
               : "px-4 sm:px-6 py-2 hover:py-3 max-h-[70px]  overflow-clip"
           } transition-all cursor-pointer `}
         >
-          <div className={` transition-all ${!imageInFocus ? "" : ""}  `}>
+          <div className={` transition-all ${!imageInFocus ? "" : ""}`}>
             {employment.description}
           </div>
         </div>

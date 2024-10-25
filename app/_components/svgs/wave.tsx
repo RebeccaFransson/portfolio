@@ -15,8 +15,10 @@ export const Wave = ({
       id="visual"
       viewBox={viewBox}
       height="200"
+      width="100%"
       version="1.1"
-      className={`w-full ${upsideDown ? "rotate-180" : ""}`}
+      preserveAspectRatio="none"
+      className={`w-full ${upsideDown ? "rotate-180" : ""} `}
     >
       <path
         xmlns="http://www.w3.org/2000/svg"

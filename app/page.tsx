@@ -16,10 +16,10 @@ export default function Home() {
     <main className="">
       <div className="flex flex-col gap-4 justify-center items-center w-full min-h-[80vh] p-4 sm:p-10 ">
         <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 items-center justify-center py-4 sm:py-32">
-          <div className=" p-4 max-w-[650px]">
+          <div className=" p-4 w-full max-w-[650px] 2xl:min-w-[900px] ">
             <div className="flex flex-col gap-2 rounded  text-black dark:text-white">
               <div className="flex gap-4 items-center">
-                <h1 className=" font-extrabold text-5xl sm:text-7xl ">
+                <h1 className=" font-extrabold text-5xl sm:text-7xl 2xl:text-9xl">
                   Hello world, <br />
                   I&apos;m <span className="text-pink-400">Rebecca</span>!
                 </h1>
@@ -79,8 +79,8 @@ export default function Home() {
           />
           <AvatarOnMouseMove />
         </div>
-        <div className="flex flex-col gap-10 bg-orange-300 ">
-          <div className="flex flex-col sm:grid sm:grid-rows-3 sm:grid-cols-3 gap-8 w-full px-6 sm:px-10 sm:justify-evenly items-center">
+        <div className="flex flex-col gap-10 bg-orange-300 items-center">
+          <div className="flex flex-col sm:grid sm:grid-rows-3 sm:grid-cols-3 gap-8 w-full px-6 sm:px-10 sm:justify-evenly items-center max-w-[2000px]">
             <div className="self-end bg-pink-300 dark:bg-pink-400 py-4 px-6 rounded-xl col-span-2 font-semibold text-pink-50 ">
               <p className="drop-shadow-sm">
                 I am a fullstack developer with a strong focus on frontend
@@ -90,7 +90,7 @@ export default function Home() {
                 clean, and maintainable code.
               </p>
             </div>
-            <div className="col-span-1 row-span-2">
+            <div className="col-span-1 row-span-2 flex justify-center items-center">
               <FlipAvatarProfile className="h-[200px] w-[200px] sm:h-[300px] sm:w-[300px]" />
             </div>
             <div className="bg-white/90  dark:bg-black/90 py-4 px-6 rounded-xl row-span-2">
@@ -132,7 +132,7 @@ export default function Home() {
         </div>
         <div
           id="employmentHistory"
-          className="flex flex-col gap-48 p-4 sm:p-10 h-[800px] w-full overflow-y-scroll snap-y snap-mandatory"
+          className="flex flex-col gap-48 p-4 sm:p-10 h-[800px] w-full  items-center overflow-y-scroll snap-y snap-mandatory"
         >
           {employmentHistory.map((employment) => (
             <ResumeJobContainer

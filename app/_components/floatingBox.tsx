@@ -11,21 +11,13 @@ export const FloatingBox = ({
   children: ReactNode;
   anchorId?: string;
 }) => {
+  const classes = `${className} p-4 sm:p-6 rounded transition hover:scale-102 max-w-[460px] 2xl:max-w-[600px]`;
   if (anchorId) {
     return (
-      <button
-        onClick={() => ScrollTo(anchorId)}
-        className={`${className} p-4 sm:p-6 rounded transition hover:scale-102 max-w-[460px]`}
-      >
+      <button onClick={() => ScrollTo(anchorId)} className={classes}>
         {children}
       </button>
     );
   }
-  return (
-    <div
-      className={`${className} p-4 sm:p-6 rounded transition hover:scale-102 max-w-[460px]`}
-    >
-      {children}
-    </div>
-  );
+  return <div className={classes}>{children}</div>;
 };
