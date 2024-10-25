@@ -3,7 +3,8 @@
 - [ ] Scrolling past first section displays the links to the projects in the header
 - [ ] Animate: typewriter for part of about me
 - [x] Scroll resume in black/white section
-- [ ] Show picture of animated me - hover - flips the coin and shows the real picture
+- [x] Show picture of animated me - hover - flips the coin and shows the real picture
+- [ ] Be able to display pictures in resume bigger
 
 #### Scrapped ideas:
 
