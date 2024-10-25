@@ -32,7 +32,10 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col gap-4 w-full">
-            <FloatingBox className="bg-orange-300 sm:translate-x-2 flex gap-4 items-center">
+            <FloatingBox
+              href="/pension"
+              className="bg-orange-300 sm:translate-x-2 flex gap-4 items-center"
+            >
               <div className="bg-pink-400 rounded-full w-10 h-10"></div>
               <div className="flex flex-col text-white dark:text-black">
                 <span className=" font-bold text-xl">Fire calculator</span>
