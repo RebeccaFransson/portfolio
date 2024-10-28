@@ -1,38 +1,114 @@
+"use client";
+
+import { useState } from "react";
+import { Plus } from "../_components/icon/plus";
 import { Input } from "../_components/input";
 import { Wave } from "../_components/svgs/wave";
 
 export default function PensionCalculator() {
+  const [age, setAge] = useState("");
+  const [retirementAge, setRetirementAge] = useState("");
+  const [interest, setInterest] = useState("");
+  const [savings, setSavings] = useState("");
+  const [futureSavings, setFutureSavings] = useState([
+    { age: null, amount: "" },
+  ]);
+  const [expenses, setExpenses] = useState([{ age: null, amount: "" }]);
+
   return (
     <main className="flex flex-col">
-      <Wave
-        viewBox="200 500 200 70"
-        colors={{
-          front: "fill-white dark:fill-black",
-          back: "fill-orange-300",
-        }}
-      />
-      <div className="bg-white dark:bg-black grid grid-cols-2 gap-4  p-4 sm:p-10 ">
+      <div className="bg-white dark:bg-black grid sm:grid-cols-2 gap-4  p-4 sm:p-10 ">
         <div className="flex flex-col gap-4 rounded-lg">
           <div className="flex flex-col gap-3 border-4 border-blue-400 rounded-lg p-2">
             <h3 className="text-blue-400 font-extrabold">
               Age, retirement age, interest
             </h3>
             <div className="flex gap-2">
-              <Input id="age" label="Age" required />
-              <Input id="retirementAge" label="Retriement age" required />
-              <Input id="interest" label="Interest %" required value={7} />
+              <Input
+                id="age"
+                label="Age"
+                required
+                value={age}
+                onChange={(value: string) => setAge(value)}
+              />
+              <Input
+                id="retirementAge"
+                label="Retriement age"
+                required
+                className="min-w-[130px]"
+                value={retirementAge}
+                onChange={(value: string) => setRetirementAge(value)}
+              />
+              <Input
+                id="interest"
+                label="Interest %"
+                required
+                value={interest}
+                onChange={(value: string) => setInterest(value)}
+              />
             </div>
           </div>
           <div className="flex flex-col gap-3 border-4 border-green-400 rounded-lg p-2">
             <h3 className="text-green-400 font-extrabold">Savings</h3>
-            <Input id="savings" label="Already saved" />
-            <Input id="futureSavings" label="Furture savings" />
-            <button>Add changes</button>
+            <Input
+              id="savings"
+              label="Already saved"
+              value={savings}
+              onChange={(value: string) => setSavings(value)}
+            />
+            {futureSavings.map((saving, index) => (
+              <Input
+                id="futureSavings"
+                label="Furture savings"
+                value={saving.amount}
+                onChange={(value) =>
+                  setFutureSavings((prev) => {
+                    return prev.map((saving, i) => {
+                      if (index === i) {
+                        return { ...saving, amount: value };
+                      }
+                      return saving;
+                    });
+                  })
+                }
+              />
+            ))}
+            <button
+              className="w-min self-end"
+              onClick={() =>
+                setFutureSavings((prev) => [...prev, { age: null, amount: "" }])
+              }
+            >
+              <Plus />
+            </button>
           </div>
           <div className="flex flex-col gap-3 border-4 border-orange-300 rounded-lg p-2">
             <h3 className="text-orange-300 font-extrabold">Expenses</h3>
-            <Input id="expenses" label="Expenses" />
-            <button>Add changes</button>
+            {expenses.map((expense, index) => (
+              <Input
+                id="expenses"
+                label="Expenses"
+                value={expense.amount}
+                onChange={(value) =>
+                  setExpenses((prev) => {
+                    return prev.map((exp, i) => {
+                      if (index === i) {
+                        return { ...exp, amount: value };
+                      }
+                      return exp;
+                    });
+                  })
+                }
+              />
+            ))}
+            <button
+              className="w-min self-end"
+              onClick={() =>
+                setExpenses((prev) => [...prev, { age: null, amount: "" }])
+              }
+            >
+              <Plus />
+            </button>
           </div>
         </div>
         <div className="border-4 border-pink-400 rounded-lg p-2">
