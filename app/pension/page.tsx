@@ -10,9 +10,13 @@ export default function PensionCalculator() {
   const [retirementAge, setRetirementAge] = useState("");
   const [interest, setInterest] = useState("");
   const [savings, setSavings] = useState("");
-  const [futureSavings, setFutureSavings] = useState([
-    { age: null, amount: "" },
-  ]);
+  const [futureSavings, setFutureSavings] = useState<
+    {
+      age: string | null;
+      amount: string;
+      monthly: boolean;
+    }[]
+  >([{ age: null, amount: "", monthly: true }]);
   const [expenses, setExpenses] = useState([{ age: null, amount: "" }]);
 
   return (
@@ -57,21 +61,87 @@ export default function PensionCalculator() {
               onChange={(value: string) => setSavings(value)}
             />
             {futureSavings.map((saving, index) => (
-              <Input
-                id="futureSavings"
-                label="Furture savings"
-                value={saving.amount}
-                onChange={(value) =>
-                  setFutureSavings((prev) => {
-                    return prev.map((saving, i) => {
-                      if (index === i) {
-                        return { ...saving, amount: value };
-                      }
-                      return saving;
-                    });
-                  })
-                }
-              />
+              <>
+                <Input
+                  id={`futureSavingsAge-${index}`}
+                  label="Furture savings"
+                  value={saving.amount}
+                  onChange={(value) =>
+                    setFutureSavings((prev) => {
+                      return prev.map((saving, i) => {
+                        if (index === i) {
+                          return { ...saving, age: value };
+                        }
+                        return saving;
+                      });
+                    })
+                  }
+                />
+                <Input
+                  id={`futureSavingsAmount-${index}`}
+                  label="Furture savings"
+                  value={saving.amount}
+                  onChange={(value) =>
+                    setFutureSavings((prev) => {
+                      return prev.map((saving, i) => {
+                        if (index === i) {
+                          return { ...saving, amount: value };
+                        }
+                        return saving;
+                      });
+                    })
+                  }
+                />
+                <button
+                  id="dropdown-button"
+                  data-dropdown-toggle="dropdown"
+                  className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-e-0 border-gray-300 dark:border-gray-700 dark:text-white rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+                  type="button"
+                >
+                  {saving.monthly ? "Montly" : "Yearly"}
+                  <svg
+                    className="w-2.5 h-2.5 ms-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </button>
+                <div
+                  id="dropdown"
+                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+                >
+                  <ul
+                    className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                    aria-labelledby="dropdown-button"
+                  >
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Montly
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Yearly
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </>
             ))}
             <button
               className="w-min self-end"
