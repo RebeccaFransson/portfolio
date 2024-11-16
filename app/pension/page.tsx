@@ -6,18 +6,58 @@ import { Input } from "../_components/input";
 import { Wave } from "../_components/svgs/wave";
 
 export default function PensionCalculator() {
-  const [age, setAge] = useState("");
-  const [retirementAge, setRetirementAge] = useState("");
-  const [interest, setInterest] = useState("");
-  const [savings, setSavings] = useState("");
+  const [age, setAge] = useState<number | undefined>(undefined);
+  const [retirementAge, setRetirementAge] = useState<number | undefined>(
+    undefined
+  );
+  const [interest, setInterest] = useState<number | undefined>(undefined);
+  const [savings, setSavings] = useState<number | undefined>(undefined);
   const [futureSavings, setFutureSavings] = useState<
     {
-      age: string | null;
-      amount: string;
+      age: number | undefined;
+      amount: number | undefined;
       monthly: boolean;
     }[]
-  >([{ age: null, amount: "", monthly: true }]);
+  >([{ age: undefined, amount: undefined, monthly: true }]);
   const [expenses, setExpenses] = useState([{ age: null, amount: "" }]);
+  const [graphData, setGraphData] = useState<
+    { age: number; savings: number }[]
+  >([]);
+
+  const calculate = () => {
+    if (retirementAge && age && interest && savings) {
+      const yearsUntilRetirement = retirementAge - age;
+      let savingsGraph = new Array<{ age: number; savings: number }>(
+        yearsUntilRetirement + 1
+      );
+      savingsGraph[0] = { age, savings };
+      let savingsThisAge = futureSavings[0].amount;
+
+      // Every year until retirement, add yearly future savings + add 7% interest
+      for (let i = 1; i < savingsGraph.length; i++) {
+        const previousValue = savingsGraph[i - 1];
+        const age = previousValue.age + 1;
+
+        // Check if futureSavings is changing on this age
+        savingsThisAge =
+          futureSavings.find((e) => e.age === age)?.amount ?? savingsThisAge;
+        if ((savingsThisAge && savingsThisAge >= 0) || savingsThisAge === 0) {
+          // Add the next value to the graph
+          savingsGraph[i] = {
+            age,
+            savings: Math.round(
+              (previousValue.savings + savingsThisAge) * 1.07
+            ),
+          };
+        }
+      }
+      setGraphData(savingsGraph);
+    }
+  };
+
+  const isNumber = (value: any): value is Number => {
+    return !isNaN(value);
+  };
 
   return (
     <main className="flex flex-col">
@@ -33,7 +73,10 @@ export default function PensionCalculator() {
                 label="Age"
                 required
                 value={age}
-                onChange={(value: string) => setAge(value)}
+                type="number"
+                onChange={(value: string) => {
+                  if (isNumber(value)) setAge(Number(value));
+                }}
               />
               <Input
                 id="retirementAge"
@@ -41,14 +84,20 @@ export default function PensionCalculator() {
                 required
                 className="min-w-[130px]"
                 value={retirementAge}
-                onChange={(value: string) => setRetirementAge(value)}
+                type="number"
+                onChange={(value: string) => {
+                  if (isNumber(value)) setRetirementAge(Number(value));
+                }}
               />
               <Input
                 id="interest"
                 label="Interest %"
                 required
                 value={interest}
-                onChange={(value: string) => setInterest(value)}
+                type="number"
+                onChange={(value: string) => {
+                  if (isNumber(value)) setInterest(Number(value));
+                }}
               />
             </div>
           </div>
@@ -58,95 +107,60 @@ export default function PensionCalculator() {
               id="savings"
               label="Already saved"
               value={savings}
-              onChange={(value: string) => setSavings(value)}
+              type="number"
+              onChange={(value: string) => {
+                if (isNumber(value)) setSavings(Number(value));
+              }}
             />
+            <p className="text-green-400 font-extrabold">Future savings</p>
             {futureSavings.map((saving, index) => (
-              <>
+              <div key={`futureSavings-${index}`} className="flex gap-2">
+                {index !== 0 ? (
+                  <Input
+                    id={`futureSavingsAge-${index}`}
+                    label="Change at age"
+                    value={saving.age}
+                    type="number"
+                    onChange={(value) => {
+                      if (isNumber(value))
+                        setFutureSavings((prev) => {
+                          return prev.map((saving, i) => {
+                            if (index === i) {
+                              return { ...saving, age: Number(value) };
+                            }
+                            return saving;
+                          });
+                        });
+                    }}
+                  />
+                ) : null}
                 <Input
-                  id={`futureSavingsAge-${index}`}
-                  label="Furture savings"
+                  key={`futureSavings-${index}`}
+                  id={`futureSavingsAmout-${index}`}
+                  label="Amount"
                   value={saving.amount}
-                  onChange={(value) =>
-                    setFutureSavings((prev) => {
-                      return prev.map((saving, i) => {
-                        if (index === i) {
-                          return { ...saving, age: value };
-                        }
-                        return saving;
+                  type="number"
+                  onChange={(value) => {
+                    if (isNumber(value))
+                      setFutureSavings((prev) => {
+                        return prev.map((saving, i) => {
+                          if (index === i) {
+                            return { ...saving, amount: Number(value) };
+                          }
+                          return saving;
+                        });
                       });
-                    })
-                  }
+                  }}
                 />
-                <Input
-                  id={`futureSavingsAmount-${index}`}
-                  label="Furture savings"
-                  value={saving.amount}
-                  onChange={(value) =>
-                    setFutureSavings((prev) => {
-                      return prev.map((saving, i) => {
-                        if (index === i) {
-                          return { ...saving, amount: value };
-                        }
-                        return saving;
-                      });
-                    })
-                  }
-                />
-                <button
-                  id="dropdown-button"
-                  data-dropdown-toggle="dropdown"
-                  className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-e-0 border-gray-300 dark:border-gray-700 dark:text-white rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
-                  type="button"
-                >
-                  {saving.monthly ? "Montly" : "Yearly"}
-                  <svg
-                    className="w-2.5 h-2.5 ms-2.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="m1 1 4 4 4-4"
-                    />
-                  </svg>
-                </button>
-                <div
-                  id="dropdown"
-                  className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-                >
-                  <ul
-                    className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                    aria-labelledby="dropdown-button"
-                  >
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Montly
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                      >
-                        Yearly
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </>
+              </div>
             ))}
             <button
               className="w-min self-end"
               onClick={() =>
-                setFutureSavings((prev) => [...prev, { age: null, amount: "" }])
+                setFutureSavings((prev) => [
+                  ...prev,
+                  { age: undefined, amount: undefined, monthly: true },
+                ])
               }
             >
               <Plus />
@@ -156,9 +170,11 @@ export default function PensionCalculator() {
             <h3 className="text-orange-300 font-extrabold">Expenses</h3>
             {expenses.map((expense, index) => (
               <Input
-                id="expenses"
+                key={`expense-${index}`}
+                id={`expense-${index}`}
                 label="Expenses"
                 value={expense.amount}
+                type="number"
                 onChange={(value) =>
                   setExpenses((prev) => {
                     return prev.map((exp, i) => {
@@ -183,6 +199,17 @@ export default function PensionCalculator() {
         </div>
         <div className="border-4 border-pink-400 rounded-lg p-2">
           <h3 className="text-pink-400 font-extrabold">Result</h3>
+          <div className="flex justify-center items-center h-full">
+            {graphData.length > 0 ? (
+              <div> {JSON.stringify(graphData)}</div>
+            ) : null}
+            <button
+              className=" text-lg text-pink-400 bg-pink-50 rounded-full py-2 px-4 hover:bg-pink-100"
+              onClick={calculate}
+            >
+              Calculate
+            </button>
+          </div>
         </div>
       </div>
       <Wave

@@ -7,6 +7,7 @@ export const Input = ({
   value = "",
   className = "",
   onChange,
+  type,
 }: {
   id: string;
   label: string;
@@ -15,6 +16,7 @@ export const Input = ({
   value?: number | string;
   className?: string;
   onChange: (value: string) => void;
+  type: "number" | "text";
 }) => {
   return (
     <div className={`w-full ${className}`}>
