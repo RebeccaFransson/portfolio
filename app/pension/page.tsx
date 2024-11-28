@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Plus } from "../_components/icon/plus";
 import { Input } from "../_components/input";
 import { Wave } from "../_components/svgs/wave";
+import { Graph } from "../_components/graph";
 
 export default function PensionCalculator() {
   const [age, setAge] = useState<number | undefined>(undefined);
@@ -199,9 +200,13 @@ export default function PensionCalculator() {
         </div>
         <div className="border-4 border-pink-400 rounded-lg p-2">
           <h3 className="text-pink-400 font-extrabold">Result</h3>
-          <div className="flex justify-center items-center h-full">
+          <div className="flex flex-col justify-center items-center h-full">
             {graphData.length > 0 ? (
-              <div> {JSON.stringify(graphData)}</div>
+              <Graph
+                inputData={graphData.map((d) => ({ x: d.age, y: d.savings }))}
+                retirementAge={retirementAge}
+                changesInSavnings={futureSavings.map((savings) => savings.age)}
+              />
             ) : null}
             <button
               className=" text-lg text-pink-400 bg-pink-50 rounded-full py-2 px-4 hover:bg-pink-100"
