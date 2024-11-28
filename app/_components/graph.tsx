@@ -91,8 +91,9 @@ export const Graph = ({
           legendPosition: "middle",
           truncateTickAt: 0,
           format: (value: number) => {
-            if (value >= 1000000) return value / 1000000 + "m";
-            if (value >= 1000) return value / 1000 + "k";
+            if (value >= 1000000 || value <= -1000000)
+              return value / 1000000 + "m";
+            if (value >= 1000 || value <= -1000) return value / 1000 + "k";
             return value;
           },
         }}

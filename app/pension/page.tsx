@@ -6,6 +6,12 @@ import { Input } from "../_components/input";
 import { Wave } from "../_components/svgs/wave";
 import { Graph } from "../_components/graph";
 
+type MoneyChanges = {
+  age: number | undefined;
+  amount: number | undefined;
+  monthly: boolean;
+};
+
 export default function PensionCalculator() {
   const [age, setAge] = useState<number | undefined>(undefined);
   const [retirementAge, setRetirementAge] = useState<number | undefined>(
@@ -13,14 +19,12 @@ export default function PensionCalculator() {
   );
   const [interest, setInterest] = useState<number | undefined>(undefined);
   const [savings, setSavings] = useState<number | undefined>(undefined);
-  const [futureSavings, setFutureSavings] = useState<
-    {
-      age: number | undefined;
-      amount: number | undefined;
-      monthly: boolean;
-    }[]
-  >([{ age: undefined, amount: undefined, monthly: true }]);
-  const [expenses, setExpenses] = useState([{ age: null, amount: "" }]);
+  const [futureSavings, setFutureSavings] = useState<MoneyChanges[]>([
+    { age: undefined, amount: undefined, monthly: true },
+  ]);
+  const [expenses, setExpenses] = useState<MoneyChanges[]>([
+    { age: undefined, amount: undefined, monthly: true },
+  ]);
   const [graphData, setGraphData] = useState<
     { age: number; savings: number }[]
   >([]);
@@ -28,32 +32,80 @@ export default function PensionCalculator() {
   const calculate = () => {
     if (retirementAge && age && interest && savings) {
       const yearsUntilRetirement = retirementAge - age;
-      let savingsGraph = new Array<{ age: number; savings: number }>(
+      let savingsGraphData = new Array<{ age: number; savings: number }>(
         yearsUntilRetirement + 1
       );
-      savingsGraph[0] = { age, savings };
-      let savingsThisAge = futureSavings[0].amount;
+      savingsGraphData[0] = { age, savings };
+      let savingsPerYearThisAge = convertAmountToYearly(futureSavings[0]);
 
+      const interestForCalculation = interest / 100 + 1; // convert 10% to 1.1 to use in calculation
       // Every year until retirement, add yearly future savings + add 7% interest
-      for (let i = 1; i < savingsGraph.length; i++) {
-        const previousValue = savingsGraph[i - 1];
+      for (let i = 1; i < savingsGraphData.length; i++) {
+        const previousValue = savingsGraphData[i - 1];
         const age = previousValue.age + 1;
 
         // Check if futureSavings is changing on this age
-        savingsThisAge =
-          futureSavings.find((e) => e.age === age)?.amount ?? savingsThisAge;
-        if ((savingsThisAge && savingsThisAge >= 0) || savingsThisAge === 0) {
+        savingsPerYearThisAge =
+          convertAmountToYearly(futureSavings.find((e) => e.age === age)) ??
+          savingsPerYearThisAge;
+        if (
+          (savingsPerYearThisAge && savingsPerYearThisAge >= 0) ||
+          savingsPerYearThisAge === 0
+        ) {
           // Add the next value to the graph
-          savingsGraph[i] = {
+          savingsGraphData[i] = {
             age,
             savings: Math.round(
-              (previousValue.savings + savingsThisAge) * 1.07
+              (previousValue.savings + savingsPerYearThisAge) *
+                interestForCalculation
             ),
           };
         }
       }
-      setGraphData(savingsGraph);
+      let expensesGraphData: Array<{ age: number; savings: number }> = [];
+      const lastSavingsDataPoint =
+        savingsGraphData[savingsGraphData.length - 1];
+      console.log(expensesGraphData);
+      let expensesPerYearThisAge = convertAmountToYearly(expenses[0]);
+
+      // Every year from retirement age until death at 100 years old, deduct yearly future expenses + add 7% interest
+      for (let i = 0; i <= 100 - retirementAge; i++) {
+        if (expensesPerYearThisAge && interest) {
+          if (i === 0)
+            expensesGraphData.push({
+              age: lastSavingsDataPoint.age,
+              savings:
+                (lastSavingsDataPoint.savings - expensesPerYearThisAge) *
+                interestForCalculation,
+            });
+          else {
+            const previousValue = expensesGraphData[i - 1];
+            const age = previousValue.age + 1;
+
+            expensesPerYearThisAge =
+              convertAmountToYearly(expenses.find((e) => e.age === age)) ??
+              expensesPerYearThisAge;
+            console.log("expensesPerYearThisAge", expensesPerYearThisAge);
+
+            expensesGraphData.push({
+              age,
+              savings:
+                (previousValue.savings - expensesPerYearThisAge) *
+                interestForCalculation,
+            });
+          }
+        }
+      }
+      console.log("done calculating expensen");
+      console.log([...savingsGraphData, ...expensesGraphData]);
+      setGraphData([...savingsGraphData, ...expensesGraphData]);
     }
+  };
+
+  const convertAmountToYearly = (moneyChanges?: MoneyChanges) => {
+    if (!moneyChanges || !moneyChanges.amount) return undefined;
+    if (moneyChanges.monthly) return moneyChanges.amount * 12;
+    return moneyChanges.amount;
   };
 
   const isNumber = (value: any): value is Number => {
@@ -168,7 +220,9 @@ export default function PensionCalculator() {
             </button>
           </div>
           <div className="flex flex-col gap-3 border-4 border-orange-300 rounded-lg p-2">
-            <h3 className="text-orange-300 font-extrabold">Expenses</h3>
+            <h3 className="text-orange-300 font-extrabold">
+              Expenses after retirement
+            </h3>
             {expenses.map((expense, index) => (
               <Input
                 key={`expense-${index}`}
@@ -180,7 +234,7 @@ export default function PensionCalculator() {
                   setExpenses((prev) => {
                     return prev.map((exp, i) => {
                       if (index === i) {
-                        return { ...exp, amount: value };
+                        return { ...exp, amount: Number(value) };
                       }
                       return exp;
                     });
@@ -191,7 +245,10 @@ export default function PensionCalculator() {
             <button
               className="w-min self-end"
               onClick={() =>
-                setExpenses((prev) => [...prev, { age: null, amount: "" }])
+                setExpenses((prev) => [
+                  ...prev,
+                  { age: undefined, amount: undefined, monthly: true },
+                ])
               }
             >
               <Plus />
