@@ -5,10 +5,12 @@ export const Graph = ({
   inputData,
   retirementAge,
   changesInSavnings,
+  changesInExpenses,
 }: {
   inputData?: Datum[];
   retirementAge?: number;
   changesInSavnings: (number | undefined)[];
+  changesInExpenses: (number | undefined)[];
 }) => {
   const data = [
     {
@@ -17,19 +19,7 @@ export const Graph = ({
     },
   ];
 
-  const markers: CartesianMarkerProps<DatumValue>[] = [
-    {
-      axis: "x",
-      legend: "change in expenses",
-      legendOrientation: "vertical",
-      lineStyle: {
-        stroke: "rgb(253 186 116)",
-        strokeWidth: 2,
-      },
-      textStyle: { fontSize: "10px", color: "#aaa" },
-      value: 43,
-    },
-  ];
+  const markers: CartesianMarkerProps<DatumValue>[] = [];
   if (changesInSavnings)
     changesInSavnings.forEach((age) => {
       if (age)
@@ -45,6 +35,21 @@ export const Graph = ({
           value: age,
         });
     });
+  if (changesInExpenses)
+    changesInExpenses.forEach((age) => {
+      if (age)
+        markers.push({
+          axis: "x",
+          legend: "change in expenses",
+          legendOrientation: "vertical",
+          lineStyle: {
+            stroke: "rgb(253 186 116)",
+            strokeWidth: 2,
+          },
+          textStyle: { fontSize: "10px", color: "#aaa" },
+          value: age,
+        });
+    });
   if (retirementAge)
     markers.push({
       axis: "x",
@@ -54,8 +59,13 @@ export const Graph = ({
         stroke: "rgb(0 187 249)",
         strokeWidth: 2,
       },
+      textStyle: { fontSize: "10px", color: "#aaa" },
       value: retirementAge,
     });
+
+  const pickEveryFifth = (arr: number[]) => {
+    return arr.filter((_, index) => index % 5 === 0);
+  };
 
   return (
     <div className="h-[300px] w-full">
@@ -77,6 +87,9 @@ export const Graph = ({
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
+          tickValues: inputData
+            ? pickEveryFifth(inputData.map((data) => Number(data.x)))
+            : [],
           legend: "age",
           legendOffset: 36,
           legendPosition: "middle",
@@ -84,7 +97,7 @@ export const Graph = ({
         }}
         axisLeft={{
           tickSize: 5,
-          tickPadding: 5,
+          tickPadding: 10,
           tickRotation: 0,
           legend: "money",
           legendOffset: -50,
@@ -99,9 +112,10 @@ export const Graph = ({
         }}
         markers={markers}
         curve="catmullRom"
+        colors={["#fee440"]}
         enableGridX={false}
         enableGridY={false}
-        pointSize={5}
+        pointSize={2}
         pointColor={{ theme: "background" }}
         pointBorderWidth={2}
         pointBorderColor={{ from: "serieColor" }}
